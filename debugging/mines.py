@@ -2,8 +2,10 @@
 import random
 import os
 
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 class Minesweeper:
     def __init__(self, width=10, height=10, mines=10):
@@ -11,7 +13,8 @@ class Minesweeper:
         self.height = height
         self.mines = set(random.sample(range(width * height), mines))
         self.field = [[' ' for _ in range(width)] for _ in range(height)]
-        self.revealed = [[False for _ in range(width)] for _ in range(height)]
+        self.revealed = [[False for _ in range(width)]
+                         for _ in range(height)]
 
     def print_board(self, reveal=False):
         clear_screen()
@@ -47,10 +50,11 @@ class Minesweeper:
             for dx in [-1, 0, 1]:
                 for dy in [-1, 0, 1]:
                     nx, ny = x + dx, y + dy
-                    if 0 <= nx < self.width and 0 <= ny < self.height and not self.revealed[ny][nx]:
+                    if (0 <= nx < self.width and 0 <= ny < self.height
+                            and not self.revealed[ny][nx]):
                         self.reveal(nx, ny)
         return True
-    
+
     def check_win(self):
         """
         Vérifie si le joueur a gagné en comptant toutes les cellules révélées.
@@ -73,13 +77,14 @@ class Minesweeper:
                     self.print_board(reveal=True)
                     print("Game Over! You hit a mine.")
                     break
-                # Vérification de la condition de victoire après chaque coup réussi
+                # Vérification de la condition de victoire après chaque coup
                 elif self.check_win():
                     self.print_board(reveal=True)
                     print("Congratulations! You won the game!")
                     break
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
+
 
 if __name__ == "__main__":
     game = Minesweeper()
