@@ -24,7 +24,7 @@ class Minesweeper:
             for x in range(self.width):
                 if reveal or self.revealed[y][x]:
                     if (y * self.width + x) in self.mines:
-                        print('*', end=' ')
+                        print('.', end=' ')
                     else:
                         count = self.count_mines_nearby(x, y)
                         print(count if count > 0 else ' ', end=' ')
