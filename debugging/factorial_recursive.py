@@ -3,16 +3,17 @@ import sys
 
 def factorial(n):
     """
-    Calculate the factorial of a given number using recursion.
-    
-    The factorial of a non-negative integer n is the product of all positive 
-    integers less than or equal to n. By definition, 0! = 1.
+    Function description:
+    Calcule la factorielle d'un nombre entier de manière récursive.
+    La factorielle de n (notée n!) est le produit de tous les entiers positifs
+    inférieurs ou égaux à n. Par définition, 0! = 1.
     
     Parameters:
-    n (int): A non-negative integer for which to calculate the factorial
+    n (int): Le nombre entier non négatif dont on veut calculer la factorielle.
+             Doit être >= 0.
     
     Returns:
-    int: The factorial of n (n!)
+    int: La factorielle de n. Retourne 1 si n = 0, sinon retourne n * (n-1)!
     """
     if n == 0:
         return 1
