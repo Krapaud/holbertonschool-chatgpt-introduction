@@ -25,10 +25,8 @@ def main():
         if action.lower() == 'exit':
             break
         elif action.lower() == 'deposit':
-            # Correction : Ajout de gestion d'erreurs pour éviter le crash avec des entrées non-numériques
             try:
                 amount = float(input("Enter the amount to deposit: $"))
-                # Validation supplémentaire : montant doit être positif
                 if amount <= 0:
                     print("Error: Amount must be positive.")
                     continue
@@ -36,10 +34,8 @@ def main():
             except ValueError:
                 print("Error: Please enter a valid numeric amount.")
         elif action.lower() == 'withdraw':
-            # Correction : Ajout de gestion d'erreurs pour éviter le crash avec des entrées non-numériques
             try:
                 amount = float(input("Enter the amount to withdraw: $"))
-                # Validation supplémentaire : montant doit être positif
                 if amount <= 0:
                     print("Error: Amount must be positive.")
                     continue
