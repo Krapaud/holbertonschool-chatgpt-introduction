@@ -29,7 +29,7 @@ class Minesweeper:
                         count = self.count_mines_nearby(x, y)
                         print(count if count > 0 else ' ', end=' ')
                 else:
-                    print('.', end=' ')
+                    print(' ', end=' ')
             print()
 
     def count_mines_nearby(self, x, y):
@@ -73,6 +73,12 @@ class Minesweeper:
             try:
                 x = int(input("Enter x coordinate: "))
                 y = int(input("Enter y coordinate: "))
+
+                # Vérification que les coordonnées sont dans les limites
+                if x < 0 or x >= self.width or y < 0 or y >= self.height:
+                    print(f"Coordinates out of bounds! Please enter x between 0-{self.width-1} and y between 0-{self.height-1}.")
+                    continue
+
                 if not self.reveal(x, y):
                     self.print_board(reveal=True)
                     print("Game Over! You hit a mine.")
