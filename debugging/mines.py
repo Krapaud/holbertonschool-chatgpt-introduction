@@ -86,7 +86,7 @@ class Minesweeper:
                 # Vérification de la condition de victoire après chaque coup
                 elif self.check_win():
                     self.print_board(reveal=True)
-                    print("Congratulations! You won the game!")
+                    print("Congratulations! You've won the game.")
                     break
             except ValueError:
                 print("Invalid input. Please enter numbers only.")
